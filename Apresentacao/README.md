@@ -1,4 +1,8 @@
 # Apresentação da Solução
+* Vídeo com o funcionamento do sensor de pressão: https://github.com/user-attachments/assets/d2db7d52-17c9-47eb-adb4-de0ecd05f36d
+* 
+
+
 
 
 # # Trabalho interdiciplinar: 
