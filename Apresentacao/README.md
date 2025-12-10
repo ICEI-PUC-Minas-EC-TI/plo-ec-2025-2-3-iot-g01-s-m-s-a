@@ -1,7 +1,7 @@
 # Apresentação da Solução
 
 
-# # Trabalgo interdiciplinar: 
+# # Trabalho interdiciplinar: 
 
 **Local:** Escola Municipal Professora Helena Abdala
 **Atividade:** Demonstração do Projeto e Oficina de Introdução à Robótica
