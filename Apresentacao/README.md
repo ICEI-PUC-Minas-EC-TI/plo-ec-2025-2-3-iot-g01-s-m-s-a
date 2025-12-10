@@ -3,14 +3,14 @@
 
 # # Trabalho interdiciplinar: 
 
-**Local:** Escola Municipal Professora Helena Abdala
-**Atividade:** Demonstração do Projeto e Oficina de Introdução à Robótica
+* **Local:** Escola Municipal Professora Helena Abdala
+* **Atividade:** Demonstração do Projeto e Oficina de Introdução à Robótica
 
 ## 1. O Objetivo
 Como parte do nosso projeto de Internet das Coisas, realizamos uma visita à Escola Municipal Professora Helena Abdala. O objetivo foi democratizar o conhecimento técnico, apresentando aos alunos como a engenharia pode resolver problemas reais e introduzindo conceitos básicos de eletrônica e programação.
 
 ## 2. Demonstração do Projeto
-Apresentamos aos alunos o nosso **Sistema de Monitoramento de Segurança de Avião**. Explicamos como a tecnologia IoT é aplicada na aviação para garantir a segurança dos passageiros.
+Apresentamos aos alunos o nosso Sistema de Monitoramento de Segurança de Avião. Explicamos como a tecnologia IoT é aplicada na aviação para garantir a segurança dos passageiros.
 
 Demonstramos o funcionamento prático dos componentes do nosso protótipo:
 **Sensores:** Mostramos como o sistema detecta mudanças críticas, como despressurização e temperatura
