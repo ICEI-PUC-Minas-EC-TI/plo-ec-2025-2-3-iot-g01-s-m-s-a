@@ -13,9 +13,9 @@ Como parte do nosso projeto de Internet das Coisas, realizamos uma visita à Esc
 Apresentamos aos alunos o nosso **Sistema de Monitoramento de Segurança de Avião**. Explicamos como a tecnologia IoT é aplicada na aviação para garantir a segurança dos passageiros.
 
 Demonstramos o funcionamento prático dos componentes do nosso protótipo:
-* [cite_start]**Sensores:** Mostramos como o sistema detecta mudanças críticas, como despressurização e temperatura[cite: 7, 8, 9].
-* [cite_start]**Atuadores:** Exibimos a atuação automática das portas e luzes de emergência em situações de perigo simuladas[cite: 12, 13].
-* [cite_start]**Visualização:** Explicamos como esses dados são enviados para o celular para monitoramento remoto[cite: 16].
+**Sensores:** Mostramos como o sistema detecta mudanças críticas, como despressurização e temperatura
+**Atuadores:** Exibimos a atuação automática das portas e luzes de emergência em situações de perigo simuladas
+**Visualização:** Explicamos como esses dados são enviados para o celular para monitoramento remoto
 
 ## 3. Prática com Tinkercad
 Para engajar os alunos na prática, realizamos um workshop utilizando a plataforma **Tinkercad**.
