@@ -18,8 +18,8 @@
 #define BMP280_ADDR  0x76
 
 // Credenciais WiFi e MQTT
-const char* ssid = "S23 de Flávio";       // SUBSTITUA SE NECESSÁRIO
-const char* password = "senha1313";       // SUBSTITUA SE NECESSÁRIO
+const char* ssid = "rede";       // SUBSTITUA SE NECESSÁRIO
+const char* password = "senha";       // SUBSTITUA SE NECESSÁRIO
 
 const char* BROKER_MQTT = "test.mosquitto.org";
 const int BROKER_PORT = 1883;
