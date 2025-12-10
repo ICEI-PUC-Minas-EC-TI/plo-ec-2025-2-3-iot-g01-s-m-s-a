@@ -1,30 +1,28 @@
-# TÍTULO DO PROJETO
+# Sistema de Monitoramento de Segurança de um Avião
 
-`CAMPUS`
+Pontifícia Universidade Católica de Minas Gerais (PUC Minas) - Campus Lourdes
 
-`CURSO`
+**Curso:** Engenharia de Computação
 
-`SEMESTRE`
+**Semestre:** Terceiro
 
-`DISCIPLINA`
-
+**Disciplina:** Internet das Coisas I
 
 ## Integrantes
 
-Flávio Guto Teixeira Bezerra
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
+* Daniel Cássio Ornelas de Almeida
+* Flávio Guto Teixeira Bezerra
+* Gustavo Parreira Epólita
+* Henrique Augusto Figueiredo Feydit Vieira
+* Izabela Naves dos Santos
 
 ## Orientador
 
-* Nome completo do professor 1 (Nome do professor de IoT1)
-* Nome completo do professor 2 (Nome do professor de Banco de Dados)
+* Julio Cesar Dillinger Conway
 
 ## Resumo
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Este projeto consiste no desenvolvimento de um protótipo de sistema de monitoramento de segurança interno para aeronaves. O sistema utiliza microcontroladores (ESP32/Arduino) integrados a sensores de pressão, temperatura e peso para detectar despressurização, incêndio e turbulência. Além do monitoramento, o projeto inclui atuadores para portas, luzes e exaustores de emergência, permitindo visualização e controle remoto via aplicativo móvel.
 
 # Código (do arduino ou esp32)
 
