@@ -24,10 +24,11 @@ Pontifícia Universidade Católica de Minas Gerais (PUC Minas) - Campus Lourdes
 
 Este projeto consiste no desenvolvimento de um protótipo de sistema de monitoramento de segurança interno para aeronaves. O sistema utiliza microcontroladores (ESP32/Arduino) integrados a sensores de pressão, temperatura e peso para detectar despressurização, incêndio e turbulência. Além do monitoramento, o projeto inclui atuadores para portas, luzes e exaustores de emergência, permitindo visualização e controle remoto via aplicativo móvel.
 
-# Código (do arduino ou esp32)
+# Código (esp32)
 
 <ol>
-<li><a href="Codigo/README.md"> Código Fonte (.ino)</a></li>
+<li><a href="Codigo"> Arquivos (.ino)</a></li>
+<li><a href="Codigo/Código Fonte.cpp"> Código Fonte (.cpp)</a></li>
 </ol>
 
 # Aplicativo para Smartphone
