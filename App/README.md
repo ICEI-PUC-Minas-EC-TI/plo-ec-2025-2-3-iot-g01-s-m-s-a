@@ -6,7 +6,7 @@ Este diretório contém os arquivos de configuração para a interface móvel do
 
 Para utilizar a interface, é necessário instalar o seguinte aplicativo para smartphone (Android):
 
-* **Nome:** IoT MQTT Panel / MQTT Dashboard Client
+* **Nome:** MQTT Dashboard Client
 * **Desenvolvedor:** Doikov Evgenii
 * **Link:** [Disponível na Google Play Store](https://play.google.com/store/apps/details?id=com.doikov.mqttclient)
 
