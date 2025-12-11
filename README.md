@@ -26,11 +26,15 @@ Este projeto consiste no desenvolvimento de um protótipo de sistema de monitora
 
 # Código (do arduino ou esp32)
 
+<ol>
 <li><a href="Codigo/README.md"> Código Fonte (.ino)</a></li>
+</ol>
 
 # Aplicativo para Smartphone
 
+<ol>
 <li><a href="App/README.md"> Aplicativo </a></li>
+</ol>
 
 # Apresentação
 
@@ -41,10 +45,15 @@ Este projeto consiste no desenvolvimento de um protótipo de sistema de monitora
 
 # Manual de Utilização
 
+<ol>
 <li><a href="Manual/manual de utilização.md"> Manual de Utilização</a></li>
+</ol>
 
 # Arquivos de modelagem 3D
 
+<ol>
+<li><a href="Arquivos_3d"> Arquivos de modelagem 3d</a></li>
+</ol>
 
 # Documentação
 
