@@ -27,7 +27,7 @@ Este projeto consiste no desenvolvimento de um protótipo de sistema de monitora
 # Código (esp32)
 
 <ol>
-<li><a href="Codigo"> Arquivos (.ino)</a></li>
+<li><a href="Codigo"> Arquivos</a></li>
 <li><a href="Codigo/Código Fonte.cpp"> Código Fonte (.cpp)</a></li>
 </ol>
 
