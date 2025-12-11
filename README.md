@@ -52,7 +52,7 @@ Este projeto consiste no desenvolvimento de um protótipo de sistema de monitora
 # Arquivos de modelagem 3D
 
 <ol>
-<li><a href="Arquivos_3d"> Arquivos de modelagem 3d</a></li>
+<li><a href="Arquivos 3d"> Arquivos de modelagem 3d</a></li>
 </ol>
 
 # Documentação
