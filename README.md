@@ -34,7 +34,7 @@ Este projeto consiste no desenvolvimento de um protótipo de sistema de monitora
 # Aplicativo para Smartphone
 
 <ol>
-<li><a href="App/README.md"> Aplicativo </a></li>
+<li><a href="App"> Aplicativo </a></li>
 </ol>
 
 # Apresentação
