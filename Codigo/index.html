@@ -23,12 +23,35 @@
       font-size: 14px;
       line-height: 1.6;
       border: 1px solid #2196f3;
+      z-index: 10;
     }
 
     #hud h2 {
       margin: 0 0 5px;
       color: #03a9f4;
       font-size: 16px;
+    }
+
+    /* Estilo do Botão */
+    button#resetBtn {
+      margin-top: 10px;
+      width: 100%;
+      padding: 8px;
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    button#resetBtn:hover {
+      background-color: #1976d2;
+    }
+
+    button#resetBtn:active {
+      background-color: #0d47a1;
     }
 
     canvas {
@@ -45,10 +68,16 @@
     <div>🔄 Giroscópio X: <span id="gyrX">--</span>°</div>
     <div>🔄 Giroscópio Y: <span id="gyrY">--</span>°</div>
     <div>🔄 Giroscópio Z: <span id="gyrZ">--</span>°</div>
+    
+    <button id="resetBtn">ZERAR POSIÇÃO</button>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
   <script>
+    // ====== Variáveis de Controle (Offset) ======
+    let offsets = { x: 0, y: 0, z: 0 };
+    let currentData = { x: 0, y: 0, z: 0 }; // Armazena a última leitura crua
+
     // ====== Cena 3D ======
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
@@ -90,20 +119,35 @@
 
     camera.position.z = 3;
 
+    // ====== Lógica do Botão de Reset ======
+    document.getElementById('resetBtn').addEventListener('click', () => {
+        // Define o offset atual como sendo o valor que está chegando do sensor
+        offsets.x = currentData.x;
+        offsets.y = currentData.y;
+        offsets.z = currentData.z;
+        console.log("Posição zerada/calibrada.");
+    });
+
     // ====== WebSocket ======
     const socket = new WebSocket(`ws://${window.location.hostname}:81/`);
 
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
 
-      // Atualiza rotação do avião
-      plane.rotation.x = -data.gyroY; // pitch
-      plane.rotation.y = data.gyroZ; // yaw
-      plane.rotation.z = data.gyroX; // roll
+      // Salva os dados crus para usar no cálculo do offset se o botão for clicado
+      currentData.x = data.gyroX;
+      currentData.y = data.gyroY;
+      currentData.z = data.gyroZ;
 
-      // Atualiza dados no painel
-      document.getElementById("tempBMP").textContent = data.tempBMP.toFixed(2);
-      document.getElementById("pressao").textContent = data.pressao.toFixed(2);
+      // Aplica a rotação considerando o offset (Valor Atual - Valor de Tara)
+      // Mapeamento original mantido: X(pitch) usa Y, Y(yaw) usa Z, Z(roll) usa X
+      plane.rotation.x = -(data.gyroY - offsets.y); 
+      plane.rotation.y = (data.gyroZ - offsets.z); 
+      plane.rotation.z = (data.gyroX - offsets.x); 
+
+      // Atualiza dados no painel (mostra o valor real do sensor, não o visual corrigido)
+      document.getElementById("tempBMP").textContent = data.tempBMP ? data.tempBMP.toFixed(2) : "--";
+      document.getElementById("pressao").textContent = data.pressao ? data.pressao.toFixed(2) : "--";
       document.getElementById("gyrX").textContent = data.gyroX.toFixed(3);
       document.getElementById("gyrY").textContent = data.gyroY.toFixed(3);
       document.getElementById("gyrZ").textContent = data.gyroZ.toFixed(3);
