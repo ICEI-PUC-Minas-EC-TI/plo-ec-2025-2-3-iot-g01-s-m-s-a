@@ -7,6 +7,7 @@ Este diretório contém o código-fonte C++ desenvolvido para o microcontrolador
 * **`Código Fonte.cpp`**: Arquivo principal contendo a lógica do sistema. Inclui:
     * `setup()`: Inicialização de sensores (I2C), conexão WiFi, configuração de pinos PWM/Servos e WebServer.
     * `loop()`: Gerenciamento de multitarefas (Timers não-bloqueantes), leitura de sensores, filtro complementar (IMU) e comunicação MQTT/WebSocket.
+* **`index.html`**: Arquivo de interface (Frontend) hospedado na memória do ESP32 via LittleFS. Contém o código HTML/JavaScript responsável por renderizar o **Horizonte Artificial 3D** e conectar-se ao WebSocket.
 * **`platformio.ini`**: Arquivo de configuração do ambiente de desenvolvimento. Define a placa (board), velocidade do monitor serial e as bibliotecas externas necessárias para compilação.
 
 ## Dependências e Bibliotecas
