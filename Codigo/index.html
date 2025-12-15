@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>MPU6500 Dashboard - Avião 3D</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    #hud {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.6;
+      border: 1px solid #2196f3;
+    }
+
+    #hud h2 {
+      margin: 0 0 5px;
+      color: #03a9f4;
+      font-size: 16px;
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="hud">
+    <h2>📊 Leituras dos Sensores</h2>
+    <div>🌡️ Temperatura: <span id="tempBMP">--</span> °C</div>
+    <div>🧭 Pressão: <span id="pressao">--</span> hPa</div>
+    <div>🔄 Giroscópio X: <span id="gyrX">--</span>°</div>
+    <div>🔄 Giroscópio Y: <span id="gyrY">--</span>°</div>
+    <div>🔄 Giroscópio Z: <span id="gyrZ">--</span>°</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
+  <script>
+    // ====== Cena 3D ======
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(innerWidth, innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Luz
+    const light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(3, 3, 5);
+    scene.add(light);
+
+    const ambient = new THREE.AmbientLight(0x404040);
+    scene.add(ambient);
+
+    // ====== Avião ======
+    const plane = new THREE.Group();
+
+    const body = new THREE.Mesh(
+      new THREE.BoxGeometry(1, 0.2, 0.2),
+      new THREE.MeshStandardMaterial({ color: 0x2196f3 })
+    );
+
+    const wings = new THREE.Mesh(
+      new THREE.BoxGeometry(0.4, 0.05, 1.5),
+      new THREE.MeshStandardMaterial({ color: 0x1976d2 })
+    );
+
+    const tail = new THREE.Mesh(
+      new THREE.BoxGeometry(0.3, 0.15, 0.05),
+      new THREE.MeshStandardMaterial({ color: 0x0d47a1 })
+    );
+    tail.position.set(-0.4, 0.15, 0);
+
+    plane.add(body);
+    plane.add(wings);
+    plane.add(tail);
+    scene.add(plane);
+
+    camera.position.z = 3;
+
+    // ====== WebSocket ======
+    const socket = new WebSocket(`ws://${window.location.hostname}:81/`);
+
+    socket.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+
+      // Atualiza rotação do avião
+      plane.rotation.x = -data.gyroY; // pitch
+      plane.rotation.y = data.gyroZ; // yaw
+      plane.rotation.z = data.gyroX; // roll
+
+      // Atualiza dados no painel
+      document.getElementById("tempBMP").textContent = data.tempBMP.toFixed(2);
+      document.getElementById("pressao").textContent = data.pressao.toFixed(2);
+      document.getElementById("gyrX").textContent = data.gyroX.toFixed(3);
+      document.getElementById("gyrY").textContent = data.gyroY.toFixed(3);
+      document.getElementById("gyrZ").textContent = data.gyroZ.toFixed(3);
+    };
+
+    // ====== Render ======
+    function animate() {
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Ajuste de tela
+    window.addEventListener("resize", () => {
+      camera.aspect = innerWidth / innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(innerWidth, innerHeight);
+    });
+  </script>
+</body>
+
+</html>
